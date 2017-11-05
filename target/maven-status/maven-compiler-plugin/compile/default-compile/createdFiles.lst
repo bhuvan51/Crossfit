@@ -1,0 +1,16 @@
+com\neotech\crossfit\logging\loggingControllerAspect.class
+com\neotech\crossfit\config\SecurityInitializer.class
+com\neotech\crossfit\constants\Constants.class
+com\neotech\crossfit\controller\UserController.class
+com\neotech\crossfit\logging\MDCInterceptor.class
+com\neotech\crossfit\config\Initializer.class
+com\neotech\crossfit\config\HazelcastHttpClientConfig.class
+com\neotech\crossfit\request\LoginRequest.class
+com\neotech\crossfit\controller\LoginController.class
+com\neotech\crossfit\config\SecurityConfig.class
+com\neotech\crossfit\logging\loggingInterceptor.class
+com\neotech\crossfit\config\MaskingConfiguration.class
+com\neotech\crossfit\response\LoginResponse.class
+com\neotech\crossfit\constants\UserEvents.class
+com\neotech\crossfit\response\BaseResponse.class
+com\neotech\crossfit\CrossfitApplication.class
