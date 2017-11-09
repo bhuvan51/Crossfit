@@ -4,6 +4,8 @@ import com.neotech.crossfit.constants.Constants;
 import com.neotech.crossfit.constants.UserEvents;
 import com.neotech.crossfit.response.BaseResponse;
 import com.neotech.crossfit.response.LoginResponse;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,8 @@ public class UserController {
     HttpServletRequest httpServletRequest;
 
     @RequestMapping(value = "/getUserDetails", method = RequestMethod.GET)
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "OK", response = LoginResponse.class),
+            @ApiResponse(code = 401, message = "UNAUTHORIZED", response = BaseResponse.class)})
     public ResponseEntity<Object> getUserDetails(@RequestHeader(value = "x-auth-token") String sessionId, HttpServletRequest request) throws UnknownHostException {
 
         logger.info("message = transfer funds endpoint. Retrieving the session id, userEvent" + UserEvents.GETUSERDETAILS);

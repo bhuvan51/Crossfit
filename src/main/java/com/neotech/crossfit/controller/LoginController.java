@@ -6,6 +6,8 @@ import com.neotech.crossfit.constants.UserEvents;
 import com.neotech.crossfit.request.LoginRequest;
 import com.neotech.crossfit.response.BaseResponse;
 import com.neotech.crossfit.response.LoginResponse;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -34,7 +36,12 @@ public class LoginController {
     HttpServletRequest httpServletRequest;
 
 
+
+
+
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "OK", response = LoginResponse.class),
+            @ApiResponse(code = 401, message = "UNAUTHORIZED", response = BaseResponse.class)})
     public ResponseEntity<Object> loginAuthenticate(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest){
 
         BaseResponse baseResponse = new BaseResponse();
