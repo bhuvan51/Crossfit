@@ -11,6 +11,7 @@
   <property name="hibernate.connection.username">bhuvan</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="show_sql">true</property>
-  <mapping resource="com/neotech/Login.hbm.xml"></mapping>
+  <mapping class="com.neotech.crossfit.entity.RegistrationRequestEntity"></mapping>
+  <mapping class="com.neotech.crossfit.entity.LoginRequestEntity"/>
 </session-factory>
 </hibernate-configuration>
