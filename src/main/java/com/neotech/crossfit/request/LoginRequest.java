@@ -1,6 +1,17 @@
 package com.neotech.crossfit.request;
 
 public class LoginRequest {
+
+    private  int login_id;
+
+    public int getLogin_ID() {
+        return login_id;
+    }
+
+    public void setLogin_ID(int login_id) {
+        this.login_id = login_id;
+    }
+
     private String userName;
     private String password;
 

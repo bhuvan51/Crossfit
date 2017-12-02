@@ -1,11 +1,14 @@
 package com.neotech.crossfit.controller;
 
 
+//import com.neotech.crossfit.App.Appl;
 import com.neotech.crossfit.constants.Constants;
 import com.neotech.crossfit.constants.UserEvents;
+import com.neotech.crossfit.entity.LoginRequestEntity;
 import com.neotech.crossfit.request.LoginRequest;
 import com.neotech.crossfit.response.BaseResponse;
 import com.neotech.crossfit.response.LoginResponse;
+import com.neotech.crossfit.services.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -32,7 +35,8 @@ public class LoginController {
 
     @Autowired
     HttpServletRequest httpServletRequest;
-
+    @Autowired
+    LoginService loginService;
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> loginAuthenticate(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest){
@@ -41,14 +45,9 @@ public class LoginController {
         try{
 
             if(loginRequest.getUserName().equals("test01") && loginRequest.getPassword().equals("Demo1234")){
+                Object[] resultObj = loginService.getLoginDetails(loginRequest);
                 baseResponse.setResponseCode(Constants.SUCCESS_CODE);
                 baseResponse.setResponseMessage(Constants.SUCCESS_MESSAGE);
-                LoginResponse loginResponse = new LoginResponse();
-                loginResponse.setUserName("test01");
-                loginResponse.setSex("Male");
-                loginResponse.setAge("25");
-                loginResponse.setType("premium");
-                addSession(loginResponse );
                 return new ResponseEntity<>(baseResponse, HttpStatus.OK);
             } else{
                 baseResponse.setResponseCode(Constants.UNAUTHORIZED_CODE);
